@@ -1,1 +1,96 @@
-@import "./variables"
+@import "./reset";
+@import "./variables";
+@import "./functions";
+
+body {
+ background-color: $bg-color;
+ color: $white-primary;
+}
+
+header {
+  @include centerContainer();
+  height: 10rem;
+  font-size: 1.2rem;
+
+  h1 {
+    border-bottom: 1px solid $white-primary;
+    padding: 0px 5rem;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  @include centerContainer();
+}
+
+button {
+  transition: 0.2s;
+  background-color: transparent;
+  color: $white-primary;
+  border: 1px solid $white-primary;
+  border-radius: 30px;
+
+  margin-left: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+
+  &:hover {
+    scale: 1.1;
+  }
+}
+
+.input-cep {
+  transition: 0.2s;
+  background-color: $bg-bottom;
+  color: $white-primary;
+  border: 1px solid $white-primary;
+
+  border-radius: 10px;
+  padding: 0.5rem;
+  outline: none;
+
+  &:hover {
+    scale: 1.03;
+  }
+}
+
+.container-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  span {
+    color: $red-primary;
+    margin-top: 2rem;
+  }
+}
+
+.container-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $bg-bottom;
+  padding: 2rem;
+  margin-top: 5rem;
+  border-radius: 30px;
+  width: 15rem;
+
+  h2 {
+    font-size: 4rem;
+    &.loading {
+      animation: spin 1s infinite;
+    }
+  }
+
+  p {
+    font-size: 1.5rem;
+    margin: 5px;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
