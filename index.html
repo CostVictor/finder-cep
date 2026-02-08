@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buscador de CEPs</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Buscador de CEPs</h1>
+    </header>
+
+    <main>
+      <form id="formSearch" class="formSearch">
+        <input
+          id="inputCep"
+          type="text"
+          placeholder="Digite o CEP..."
+          minlength="8"
+          maxlength="8"
+          inputmode="numeric"
+          pattern="[0-9]{8}"
+          required
+        />
+        <div class="buttons">
+          <button id="btnBuscar" type="submit">Buscar</button>
+          <button id="btnLimpar" type="button">Limpar</button>
+        </div>
+      </form>
+
+      <span id="loadingSpan" class="loading hidden"
+        >Calma aí, estou procurando...</span
+      >
+      <span id="successSpan" class="success hidden"
+        >Encontrei. Pode confiar!</span
+      >
+      <span id="errorSpan" class="error hidden"
+        >Achei não. Tente novamente.</span
+      >
+
+      <div class="infoCep">
+        <h2>Resultado</h2>
+        <p>DDD: <span id="ddd">...</span></p>
+        <p>CEP: <span id="cep">...</span></p>
+        <p>Logradouro: <span id="logradouro">...</span></p>
+        <p>Bairro: <span id="bairro">...</span></p>
+        <p>Cidade: <span id="localidade">...</span></p>
+        <p>Estado: <span id="estado">...</span></p>
+        <p>Região: <span id="regiao">...</span></p>
+      </div>
+
+      <div id="infoMap" class="infoMap hidden">
+        <h3>Mapa do local</h3>
+        <div id="map"></div>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        Desenvolvido por
+        <a href="https://github.com/CostVictor" target="_blank"
+          >Victor Gabriel</a
+        >
+      </p>
+    </footer>
+
+    <script defer src="scrypt.js"></script>
+  </body>
+</html>
